@@ -1,6 +1,6 @@
 import { BeiAnGongAn } from '@/components/BeiAnGongAn'
 import BeiAnSite from '@/components/BeiAnSite'
-import PoweredBy from '@/components/PoweredBy'
+// import PoweredBy from '@/components/PoweredBy'
 import { siteConfig } from '@/lib/config'
 
 const Footer = ({ title }) => {
@@ -35,7 +35,7 @@ const Footer = ({ title }) => {
         <h1 className='text-xs pt-4 text-light-400 dark:text-gray-400'>
           {title} {siteConfig('BIO') && <>|</>} {siteConfig('BIO')}
         </h1>
-        <PoweredBy className='justify-center' />
+        {/* <PoweredBy className='justify-center' /> */}
       </span>
       <br />
     </footer>
