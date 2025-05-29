@@ -22,11 +22,18 @@ import { useEffect, useState } from 'react'
 const Slug = props => {
   const { post } = props
   const router = useRouter()
-  const { locale } = useGlobal()
+  const { locale, setArticleLock } = useGlobal()
 
   // 文章锁🔐
   const [lock, setLock] = useState(post?.password && post?.password !== '')
   const { showNotification, Notification } = useNotification()
+
+  // 同步 lock 状态到全局
+  useEffect(() => {
+    if (post?.id) {
+      setArticleLock(post.id, lock)
+    }
+  }, [lock, post, setArticleLock])
 
   /**
    * 验证文章密码

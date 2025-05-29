@@ -46,19 +46,23 @@ export default function SideRight(props) {
     className
   } = props
 
-  const { locale } = useGlobal()
+  const { locale, getArticleLockStatus } = useGlobal()
 
   // 文章全屏处理
   if (post && post?.fullWidth) {
     return null
   }
 
+  // 判断是否应该显示目录
+  const shouldShowToc =
+    post && !getArticleLockStatus(post.id) && post.toc && post.toc.length > 1
+
   return (
     <div
       id='sideRight'
       className={` lg:w-80 lg:pt-8 ${post ? 'lg:pt-0' : 'lg:pt-4'}`}>
       <div className='sticky top-8 space-y-4'>
-        {post && post.toc && post.toc.length > 1 && (
+        {shouldShowToc && (
           <Card>
             <Catalog toc={post.toc} />
           </Card>
