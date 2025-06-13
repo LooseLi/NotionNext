@@ -117,19 +117,7 @@ const Style = () => {
         background-color: var(--theme-color) !important;
       }
 
-      #theme-hexo div[class*='hover:bg-indigo-500']:hover {
-        background-color: var(--theme-color) !important;
-      }
-      // /* 移动设备 一级菜单项类名 */
-      // #theme-hexo .w-full.px-8.py-3:hover {
-      //   background-color: var(--theme-color) !important;
-      // }
-      // /* 移动设备 二级菜单项类名 */
-      // #theme-hexo .px-10.bg-gray-50:hover,
-      // #theme-hexo .justify-start.bg-gray-50:hover {
-      //   background-color: var(--theme-color) !important;
-      // }
-      // .dark #theme-hexo .dark\:bg-black:hover {
+      // #theme-hexo div[class*='hover:bg-indigo-500']:hover {
       //   background-color: var(--theme-color) !important;
       // }
 
