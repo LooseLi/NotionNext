@@ -117,10 +117,12 @@ const Style = () => {
         background-color: var(--theme-color) !important;
       }
       /* 移动设备菜单栏背景色 */
-      #theme-hexo .hover\:bg-indigo-500:hover {
+      #theme-hexo .hover\:bg-indigo-500:hover,
+      #theme-hexo div[class*='hover:bg-indigo-500']:hover {
         background-color: var(--theme-color) !important;
       }
-      .dark #theme-hexo .dark\:hover\:bg-indigo-500:hover {
+      .dark #theme-hexo .dark\:hover\:bg-indigo-500:hover,
+      .dark #theme-hexo div[class*='dark:hover:bg-indigo-500']:hover {
         background-color: var(--theme-color) !important;
       }
 
