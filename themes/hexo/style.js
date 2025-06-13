@@ -117,9 +117,10 @@ const Style = () => {
         background-color: var(--theme-color) !important;
       }
 
-      // #theme-hexo div[class*='hover:bg-indigo-500']:hover {
-      //   background-color: var(--theme-color) !important;
-      // }
+      // 移动设备菜单栏选中背景色
+      #theme-hexo div[class*='hover:bg-indigo-500']:hover {
+        background-color: var(--theme-color) !important;
+      }
 
       /* 文章浏览进度条颜色 */
       #theme-hexo .bg-indigo-600 {
