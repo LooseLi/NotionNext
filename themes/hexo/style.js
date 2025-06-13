@@ -117,20 +117,14 @@ const Style = () => {
         background-color: var(--theme-color) !important;
       }
       /* 移动设备菜单栏背景色 */
-      #theme-hexo .hover\:bg-indigo-500:hover,
-      #theme-hexo [class*='hover:bg-indigo-500']:hover {
+      #theme-hexo .hover\:bg-indigo-500:hover {
         background-color: var(--theme-color) !important;
       }
-      /* 深色模式 */
-      .dark #theme-hexo .dark\:hover\:bg-indigo-500:hover,
-      .dark #theme-hexo [class*='dark:hover:bg-indigo-500']:hover {
+      .dark #theme-hexo .dark\:hover\:bg-indigo-500:hover {
         background-color: var(--theme-color) !important;
       }
       /* 针对菜单项的类名组合 */
-      // #theme-hexo .w-full.px-8.py-3:hover {
-      //   background-color: var(--theme-color) !important;
-      // }
-      .dark #theme-hexo .dark\:bg-hexo-black-gray:hover {
+      #theme-hexo .w-full.px-8.py-3:hover {
         background-color: var(--theme-color) !important;
       }
 
