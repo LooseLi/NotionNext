@@ -127,9 +127,9 @@ const Style = () => {
         background-color: var(--theme-color) !important;
       }
       /* 针对菜单项的类名组合 */
-      #theme-hexo .w-full.px-8.py-3:hover {
-        background-color: var(--theme-color) !important;
-      }
+      // #theme-hexo .w-full.px-8.py-3:hover {
+      //   background-color: var(--theme-color) !important;
+      // }
       .dark #theme-hexo .dark\:bg-hexo-black-gray:hover {
         background-color: var(--theme-color) !important;
       }
