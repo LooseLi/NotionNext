@@ -6,7 +6,7 @@ const BLOG = {
   NOTION_PAGE_ID:
     process.env.NOTION_PAGE_ID ||
     '02ab3b8678004aa69e9e415905ef32a5,en:7c1d570661754c8fbc568e00a01fd70e',
-  THEME: process.env.NEXT_PUBLIC_THEME || 'simple', // 当前主题，在themes文件夹下可找到所有支持的主题；主题名称就是文件夹名，例如 example,fukasawa,gitbook,heo,hexo,landing,matery,medium,next,nobelium,plog,simple
+  THEME: process.env.NEXT_PUBLIC_THEME || 'simple', // 当前主题，在themes文件夹下可找到所有支持的主题；主题名称就是文件夹名，例如 claude,endspace,example,fukasawa,fuwari,gitbook,heo,hexo,landing,matery,medium,next,nobelium,plog,simple
   LANG: process.env.NEXT_PUBLIC_LANG || 'zh-CN', // e.g 'zh-CN','en-US'  see /lib/lang.js for more.
   SINCE: process.env.NEXT_PUBLIC_SINCE || 2021, // e.g if leave this empty, current year will be used.
 
@@ -42,6 +42,7 @@ const BLOG = {
   ...require('./conf/ad.config'), // 广告营收插件
   ...require('./conf/plugin.config'), // 其他第三方插件 algolia全文索引
   ...require('./conf/performance.config'), // 性能优化配置
+  ...require('./conf/top-tag.config'), // 置顶文章全局配置
 
   // 高级用法
   ...require('./conf/layout-map.config'), // 路由与布局映射自定义，例如自定义特定路由的页面布局
@@ -57,6 +58,8 @@ const BLOG = {
 
   // 文章列表相关设置
   CAN_COPY: process.env.NEXT_PUBLIC_CAN_COPY || true, // 是否允许复制页面内容 默认允许，如果设置为false、则全栈禁止复制内容。
+
+  ...require('./conf/techgrow.config'), // 公众号导流插件（TechGrow）
 
   // 侧栏布局 是否反转(左变右,右变左) 已支持主题: hexo next medium fukasawa example
   LAYOUT_SIDEBAR_REVERSE:
