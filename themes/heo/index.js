@@ -183,7 +183,7 @@ const LayoutSearch = props => {
   useEffect(() => {
     // 高亮搜索结果
     if (currentSearch) {
-      setTimeout(() => {
+      const timer = setTimeout(() => {
         replaceSearchResult({
           doms: document.getElementsByClassName('replace'),
           search: currentSearch,
@@ -193,10 +193,11 @@ const LayoutSearch = props => {
           }
         })
       }, 100)
+      return () => clearTimeout(timer)
     }
-  }, [])
+  }, [currentSearch])
   return (
-    <div currentSearch={currentSearch}>
+    <div data-current-search={currentSearch || ''}>
       <div id='post-outer-wrapper' className='px-5  md:px-0'>
         {!currentSearch ? (
           <SearchNav {...props} />
@@ -273,7 +274,7 @@ const LayoutSlug = props => {
   useEffect(() => {
     // 404
     if (!post) {
-      setTimeout(
+      const timer = setTimeout(
         () => {
           if (isBrowser) {
             const article = document.querySelector(
@@ -288,8 +289,9 @@ const LayoutSlug = props => {
         },
         waiting404
       )
+      return () => clearTimeout(timer)
     }
-  }, [post])
+  }, [post, router, waiting404])
   return (
     <>
       <div

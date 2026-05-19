@@ -19,7 +19,12 @@
 | [vercel-redeploy.md](./vercel-redeploy.md) | 重新部署 |
 | [netlify.md](./netlify.md) | Netlify（4.0.9+） |
 | [cloudflare-pages.md](./cloudflare-pages.md) | Cloudflare 静态 |
+| [build-tuning.md](./build-tuning.md) | **构建超时 / Notion 预热与限流**（环境变量） |
 | [vps.md](./vps.md) | VPS / Docker（Node 20+） |
+
+## 构建超时排错
+
+若在 Cloudflare、Netlify 等平台出现 `timeout of 300 seconds` 或 prefetch 极慢，请参阅 **[构建性能调优](./build-tuning.md)**（`BUILD_PREFETCH_ENABLED`、`STATIC_PAGE_GENERATION_TIMEOUT` 等）。
 
 ## 环境要求（2026）
 

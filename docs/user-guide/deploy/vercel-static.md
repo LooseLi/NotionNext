@@ -18,6 +18,8 @@ yarn export
 
 （与默认 `yarn build` 不同，会生成静态站点。）
 
+构建若出现 Notion API 过慢或 `timeout of 300 seconds`，见 **[构建性能调优](./build-tuning.md)**。
+
 ## 另一种静态方案
 
 [Cloudflare Pages 静态部署](./cloudflare-pages.md) 同样为导出后部署，更新内容后需重新构建。

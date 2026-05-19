@@ -15,7 +15,8 @@
 
 - 默认语言：`LANG`（`blog.config.js` / 环境变量）  
 - 支持：`en-US`、`zh-CN`、`zh-HK`、`zh-TW`、`fr-FR`、`tr-TR`、`ja-JP` 等  
-- 预览：`https://preview.tangly1024.com/?lang=en-US`
+- 预览：`https://preview.tangly1024.com/?lang=en-US`  
+- **两个 Notion 数据库之间的正文同步**（可选 CLI，会先 `--dry-run` 再写入）：见 [双语库翻译 CLI](../notion/bilingual-translator.md)
 
 ## 站点图标
 

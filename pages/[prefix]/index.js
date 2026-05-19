@@ -19,6 +19,8 @@ import { useEffect, useState } from 'react'
 import { getStaticPathsBase } from '@/lib/build/staticPaths'
 import { isExport } from '@/lib/utils/buildMode'
 
+const isStaticExport = process.env.EXPORT === 'true'
+
 /**
  * 根据notion的slug访问页面
  * 只解析一级目录例如 /about
@@ -75,7 +77,9 @@ const Slug = props => {
         }
       }
     }
-  }, [post])
+    // validPassword 内部依赖 post / router 同时也已在依赖里
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [post, router.asPath])
 
   // 文章加载
   useEffect(() => {
@@ -89,7 +93,7 @@ const Slug = props => {
       )
       post.toc = getPageTableOfContents(post, post.blockMap)
     }
-  }, [router, lock])
+  }, [router, lock, post])
 
   props = { ...props, lock, validPassword }
   const theme = siteConfig('THEME', BLOG.THEME, props.NOTION_CONFIG)
@@ -135,7 +139,7 @@ export async function getStaticProps({ params: { prefix }, locale }) {
 
   return {
     props,
-    revalidate: isExport()
+    revalidate: isStaticExport
       ? undefined
       : siteConfig(
         'NEXT_REVALIDATE_SECOND',

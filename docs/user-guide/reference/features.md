@@ -152,6 +152,18 @@
 
 懒加载、预取、Web Vitals、压缩等；生产环境一般由 Next/Vercel 与 `ENABLE_CACHE` 协同。
 
+### 构建 / 导出专用环境变量
+
+仅 `yarn build`、`yarn export`（`BUILD_MODE` / `EXPORT`）时生效，完整说明见 **[部署 · 构建性能调优](../deploy/build-tuning.md)**：
+
+| 环境变量 | 默认 | 说明 |
+| --- | --- | --- |
+| `BUILD_PREFETCH_ENABLED` | 开启 | `false` 关闭全量 block 预热 |
+| `BUILD_PREFETCH_CONCURRENCY` | `8` | 预热并发 |
+| `NOTION_BUILD_RATE_MAX_PER_MINUTE` | `50` | 构建期 Notion 每分钟请求上限 |
+| `NOTION_BUILD_RATE_MIN_INTERVAL_MS` | `300` | 构建期请求最小间隔（ms） |
+| `STATIC_PAGE_GENERATION_TIMEOUT` | `300` | 单页 SSG 超时（秒） |
+
 ## 缓存与调试（conf/dev.config.js）
 
 | 键 | 说明 |

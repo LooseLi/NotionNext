@@ -345,6 +345,8 @@ docker-compose up -d
 yarn export
 ```
 
+若构建出现 Notion API 过慢或 `timeout of 300 seconds`，可在平台环境变量中配置 `BUILD_PREFETCH_ENABLED`、`STATIC_PAGE_GENERATION_TIMEOUT` 等，详见 [docs/user-guide/deploy/build-tuning.md](docs/user-guide/deploy/build-tuning.md)。
+
 ### GitHub Pages 部署
 
 1. **GitHub Actions 配置**

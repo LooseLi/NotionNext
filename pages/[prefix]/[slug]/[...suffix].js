@@ -6,6 +6,8 @@ import { isExport } from '@/lib/utils/buildMode'
 import { checkSlugHasMorThanTwoSlash } from '@/lib/utils/post'
 import Slug from '..'
 
+const isStaticExport = process.env.EXPORT === 'true'
+
 /**
  * 根据notion的slug访问页面
  * 解析三级以上目录 /article/2023/10/29/test
@@ -50,7 +52,7 @@ export async function getStaticProps({
 
   return {
     props,
-    revalidate: isExport()
+    revalidate: isStaticExport
       ? undefined
       : siteConfig(
         'NEXT_REVALIDATE_SECOND',
