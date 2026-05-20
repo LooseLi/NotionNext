@@ -16,7 +16,7 @@ export const Header = props => {
 
   return (
     <header className='tl-header sticky top-0 z-40 w-full'>
-      <div className='mx-auto flex max-w-3xl items-center gap-2 px-4 py-3 md:gap-4'>
+      <div className='mx-auto flex max-w-3xl items-center gap-2 px-4 py-3 md:gap-4 overflow-visible'>
         <SmartLink
           href='/'
           className='tl-brand flex-shrink-0 text-lg font-semibold text-[var(--tl-text)] no-underline hover:opacity-80'>

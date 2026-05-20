@@ -59,11 +59,13 @@ export const MenuList = props => {
 
   if (variant === 'header') {
     return (
-      <nav aria-label='Main' className='flex-1 min-w-0 flex justify-center'>
-        <ul className='flex items-center gap-0.5 sm:gap-1 overflow-x-auto max-w-full py-1 no-scrollbar'>
-          {links.map((link, index) => (
-            <MenuItemDrop key={link.id ?? index} link={link} variant='inline' />
-          ))}
+      <nav aria-label='Main' className='flex-1 min-w-0 flex justify-center overflow-visible'>
+        <ul className='flex items-center gap-0.5 sm:gap-1 overflow-x-auto max-w-full py-1 no-scrollbar overflow-y-visible'>
+          {links
+            .filter(link => link?.show !== false)
+            .map((link, index) => (
+              <MenuItemDrop key={link.id ?? index} link={link} variant='inline' />
+            ))}
         </ul>
       </nav>
     )

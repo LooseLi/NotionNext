@@ -39,6 +39,7 @@ const Style = () => {
         background-color: color-mix(in srgb, var(--tl-bg) 88%, transparent);
         backdrop-filter: blur(10px);
         border-bottom: 1px solid var(--tl-border);
+        overflow: visible;
       }
 
       #theme-thoughtlite .tl-brand {
