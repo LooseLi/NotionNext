@@ -1,11 +1,11 @@
 import { useRouter } from 'next/router'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useMemo, useRef } from 'react'
 import { siteConfig } from '@/lib/config'
 import { handleEmailClick } from '@/lib/plugins/mailEncrypt'
 import { useGlobal } from '@/lib/global'
-import CONFIG from '../config'
 import SmartLink from '@/components/SmartLink'
 import { EndspacePlayer } from './EndspacePlayer'
+import { buildMenuItems, isMenuItemActive } from './menu'
 import {
   IconMenu2,
   IconX,
@@ -70,23 +70,19 @@ const SocialIconComponents = {
 export const MobileNav = (props) => {
   const router = useRouter()
   const { siteInfo } = useGlobal()
+  const { customNav, customMenu } = props
   const [activeTab, setActiveTab] = useState('Home')
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [openSubMenu, setOpenSubMenu] = useState(null)
   const emailIcon = useRef(null)
   
   // Get avatar from props or global context
   const avatarUrl = props?.siteInfo?.icon || siteInfo?.icon || siteConfig('AVATAR')
 
-  // All navigation items
-  const menuItems = [
-    { name: 'Home', path: '/' },
-    { name: 'Category', path: '/category', show: siteConfig('ENDSPACE_MENU_CATEGORY', null, CONFIG) },
-    { name: 'Tag', path: '/tag', show: siteConfig('ENDSPACE_MENU_TAG', null, CONFIG) },
-    { name: 'Archive', path: '/archive', show: siteConfig('ENDSPACE_MENU_ARCHIVE', null, CONFIG) },
-    { name: 'Portfolio', path: '/portfolio' },
-    { name: 'Friends', path: '/friends' },
-    { name: 'Search', path: '/search', show: siteConfig('ENDSPACE_MENU_SEARCH', null, CONFIG) }
-  ].filter(item => item.show !== false)
+  const menuItems = useMemo(
+    () => buildMenuItems({ customNav, customMenu }),
+    [customNav, customMenu]
+  )
 
   // Social icon config - using contact.config.js settings
   const socialLinks = [
@@ -107,18 +103,14 @@ export const MobileNav = (props) => {
 
   useEffect(() => {
     const path = router.asPath
-    if (path === '/') setActiveTab('Home')
-    else if (path.includes('/category')) setActiveTab('Category')
-    else if (path.includes('/tag')) setActiveTab('Tag')
-    else if (path.includes('/archive')) setActiveTab('Archive')
-    else if (path.includes('/search')) setActiveTab('Search')
-    else if (path.includes('/friends')) setActiveTab('Friends')
-    else if (path.includes('/portfolio')) setActiveTab('Portfolio')
-  }, [router.asPath])
+    const activeItem = menuItems.find(item => isMenuItemActive(item, path))
+    setActiveTab(activeItem?.name || 'Home')
+  }, [router.asPath, menuItems])
 
   // Close menu when route changes
   useEffect(() => {
     setIsMenuOpen(false)
+    setOpenSubMenu(null)
   }, [router.asPath])
 
   // Prevent body scroll when menu is open
@@ -135,8 +127,7 @@ export const MobileNav = (props) => {
 
   // Render icon component
   const renderIcon = (name) => {
-    const IconComponent = IconComponents[name]
-    if (!IconComponent) return null
+    const IconComponent = IconComponents[name] || BookMarkFillIcon
     return <IconComponent size={20} className="w-6 text-center" />
   }
 
@@ -199,22 +190,69 @@ export const MobileNav = (props) => {
       >
         {/* Navigation Items */}
         <div className="flex flex-col items-start p-6 space-y-2">
-          {menuItems.map(item => (
-            <SmartLink
-              key={item.name}
-              href={item.path}
-              className={`flex items-center gap-4 py-3 w-full transition-all group ${
-                activeTab === item.name
-                  ? 'text-black font-bold'
-                  : 'text-[var(--endspace-text-secondary)] hover:text-black'
-              }`}
-            >
-              <div className={`transition-colors ${activeTab === item.name ? 'text-black' : 'text-gray-400 group-hover:text-black'}`}>
-                 {renderIcon(item.name)}
+          {menuItems.map(item => {
+            const hasSubMenu = item.subMenus?.length > 0
+            const itemKey = `${item.name}-${item.path}`
+            const isOpen = openSubMenu === itemKey
+            const itemClassName = `flex items-center gap-4 py-3 w-full transition-all group ${
+              activeTab === item.name
+                ? 'text-black font-bold'
+                : 'text-[var(--endspace-text-secondary)] hover:text-black'
+            }`
+            const itemContent = (
+              <>
+                <div className={`transition-colors ${activeTab === item.name ? 'text-black' : 'text-gray-400 group-hover:text-black'}`}>
+                  {item.icon ? <i className={item.icon} /> : renderIcon(item.name)}
+                </div>
+                <span className="text-xl font-medium">{item.name}</span>
+                {hasSubMenu && (
+                  <span className={`ml-auto text-xl transition-transform duration-200 ${isOpen ? 'rotate-90' : ''}`}>
+                    &rsaquo;
+                  </span>
+                )}
+              </>
+            )
+
+            return (
+              <div key={itemKey} className='w-full'>
+                {hasSubMenu ? (
+                  <button
+                    type='button'
+                    onClick={() => setOpenSubMenu(isOpen ? null : itemKey)}
+                    className={itemClassName}
+                  >
+                    {itemContent}
+                  </button>
+                ) : (
+                  <SmartLink
+                    href={item.path}
+                    target={item.target}
+                    className={itemClassName}
+                  >
+                    {itemContent}
+                  </SmartLink>
+                )}
+
+                {hasSubMenu && isOpen && (
+                  <div className='mb-2 ml-10 flex flex-col border-l border-[var(--endspace-border-base)] pl-4'>
+                    {item.subMenus.map(subMenu => (
+                      <SmartLink
+                        key={`${subMenu.name}-${subMenu.path}`}
+                        href={subMenu.path}
+                        target={subMenu.target || item.target}
+                        className='flex items-center gap-3 py-2 text-base text-[var(--endspace-text-secondary)] transition-colors hover:text-black'
+                      >
+                        <span className='w-4 text-center text-gray-400'>
+                          {subMenu.icon ? <i className={subMenu.icon} /> : renderIcon(subMenu.name)}
+                        </span>
+                        <span>{subMenu.name}</span>
+                      </SmartLink>
+                    ))}
+                  </div>
+                )}
               </div>
-              <span className="text-xl font-medium">{item.name}</span>
-            </SmartLink>
-          ))}
+            )
+          })}
         </div>
 
         {/* Music Player (No Label, No Divider) */}

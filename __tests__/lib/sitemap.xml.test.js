@@ -1,5 +1,5 @@
 import fs from 'fs'
-import { generateSitemapXml } from '@/lib/sitemap.xml'
+import { generateSitemapXml } from '@/lib/utils/sitemap.xml'
 import { siteConfig } from '@/lib/config'
 
 jest.mock('@/lib/config', () => ({

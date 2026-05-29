@@ -106,6 +106,10 @@ export const THEME_SWITCH_MANIFEST = {
   claude: {
     name: 'Claude',
     summary: '类 Claude Docs 的文档与终端氛围。'
+  },
+  thoughtlite: {
+    name: 'ThoughtLite',
+    summary: '轻阅读向时间线与 Latest 卡片，单列列表与文章卡片排版。'
   }
 }
 

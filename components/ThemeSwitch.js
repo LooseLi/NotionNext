@@ -53,11 +53,19 @@ const ThemeSwitch = () => {
         <div
           id='draggableBox'
           style={{ left: '0px', top: '80vh' }}
-          className='group fixed z-50 flex max-w-[min(100vw-1rem,16rem)] select-none flex-col items-stretch overflow-hidden rounded-2xl border border-gray-200/80 bg-white/90 p-1.5 shadow-[0_8px_30px_rgb(0,0,0,0.12)] ring-1 ring-black/5 backdrop-blur-md transition hover:border-gray-300/90 hover:shadow-[0_12px_40px_rgb(0,0,0,0.15)] dark:border-gray-600/70 dark:bg-gray-950/92 dark:ring-white/10 dark:hover:border-gray-500/80'>
-          {/* 悬浮入口：仅样式优化，点击逻辑不变 */}
+          className={`group fixed z-50 flex max-w-[min(100vw-1rem,16rem)] select-none flex-col items-stretch overflow-hidden rounded-2xl border p-1.5 backdrop-blur-md transition ${
+            isDarkMode
+              ? 'border-gray-500/45 bg-gray-950/[0.97] shadow-[0_8px_32px_rgba(0,0,0,0.55)] ring-1 ring-white/[0.08] hover:border-gray-400/55 hover:shadow-[0_14px_44px_rgba(0,0,0,0.62)]'
+              : 'border-gray-200/80 bg-white/90 shadow-[0_8px_30px_rgb(0,0,0,0.12)] ring-1 ring-black/5 hover:border-gray-300/90 hover:shadow-[0_12px_40px_rgb(0,0,0,0.15)]'
+          }`}>
+          {/* 悬浮入口：明暗随 isDarkMode，与 html.dark / 切换按钮一致 */}
           <div className='flex min-h-[3rem] items-center gap-2.5 pl-0.5 pr-1 duration-200 group-hover:gap-3'>
             <span
-              className='relative flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 via-violet-600 to-fuchsia-600 text-white shadow-md ring-2 ring-white/30 transition active:scale-95 dark:from-indigo-400 dark:via-violet-500 dark:to-fuchsia-500 dark:ring-white/20'
+              className={`relative flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center rounded-xl text-white shadow-md ring-2 transition active:scale-95 ${
+                isDarkMode
+                  ? 'bg-gradient-to-br from-indigo-400 via-violet-500 to-fuchsia-500 ring-white/18'
+                  : 'bg-gradient-to-br from-indigo-500 via-violet-600 to-fuchsia-600 ring-white/30'
+              }`}
               onClick={() => {
                 setSideBarVisible(true)
               }}
@@ -65,7 +73,11 @@ const ThemeSwitch = () => {
                 setSideBarVisible(true)
               }}
               title='Open theme panel'>
-              <span className='absolute inset-0 rounded-xl bg-gradient-to-t from-black/10 to-transparent' />
+              <span
+                className={`absolute inset-0 rounded-xl bg-gradient-to-t to-transparent ${
+                  isDarkMode ? 'from-black/25' : 'from-black/10'
+                }`}
+              />
               <i className='fa-solid fa-palette relative text-[15px]' aria-hidden />
             </span>
             <div className='min-w-0 flex-1 overflow-hidden py-0.5'>
@@ -75,16 +87,26 @@ const ThemeSwitch = () => {
               <button
                 id='themeSelect'
                 type='button'
-                className='w-full cursor-pointer text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/80 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-indigo-400 dark:focus-visible:ring-offset-gray-950'
+                className={`w-full cursor-pointer text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/80 focus-visible:ring-offset-2 ${
+                  isDarkMode
+                    ? 'focus-visible:ring-indigo-400 focus-visible:ring-offset-gray-950'
+                    : 'focus-visible:ring-offset-white'
+                }`}
                 onClick={() => {
                   setSideBarVisible(true)
                 }}
                 title='Click To Switch Theme'>
-                <span className='block text-[10px] font-semibold uppercase tracking-[0.14em] text-gray-500 dark:text-gray-400'>
+                <span
+                  className={`block text-[10px] font-semibold uppercase tracking-[0.14em] ${
+                    isDarkMode ? 'text-gray-400' : 'text-gray-500'
+                  }`}>
                   {locale.MENU.THEME_SWITCH}
                 </span>
                 <span className='mt-0.5 flex min-w-0 items-center gap-1.5'>
-                  <span className='min-w-0 flex-1 truncate text-sm font-semibold leading-snug text-gray-900 dark:text-gray-50'>
+                  <span
+                    className={`min-w-0 flex-1 truncate text-sm font-semibold leading-snug ${
+                      isDarkMode ? 'text-gray-50' : 'text-gray-900'
+                    }`}>
                     {currentMeta.name}
                   </span>
                   <ThemeTierBadge tier={currentMeta.tier} labels={tierLabels} />
