@@ -1,6 +1,10 @@
-﻿# Claude 主题
+# Claude 主题
 
 > 主题 ID：`claude` · 预览：[preview.tangly1024.com/?theme=claude](https://preview.tangly1024.com/?theme=claude)
+
+## 主题预览
+
+![Claude 主题预览](/images/themes-preview/claude.webp)
 
 ## 简介
 
@@ -23,9 +27,9 @@
 2. 环境变量：`NEXT_PUBLIC_THEME=claude`
 3. `blog.config.js` 的 `THEME`
 
-## 开发者深度文档
+## 进阶实现文档
 
-实现细节、全局改动与架构说明见 [Claude 开发者文档（GitHub）](https://github.com/notionnext-org/NotionNext/blob/main/docs/developer/themes/CLAUDE.md)（docs/developer/themes/，与本文站长向说明分工）。
+实现细节、全局改动与架构说明见 [Claude 实现文档](../../developer/themes/CLAUDE.md)。如果你准备改主题或提交 PR，建议继续阅读。
 
 ## 配置说明
 

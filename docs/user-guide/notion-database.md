@@ -1,48 +1,40 @@
-# Notion 数据库的使用
-
-> 迁移自：[Notion数据库的使用](https://docs.tangly1024.com/article/start-to-write)（slug: `start-to-write`）  
-> 4.x 新增能力（多数据源、置顶、密码、评论 Hide 等）见 **[reference/notion-4x.md](./reference/notion-4x.md)**
+# Notion数据库的使用
+> 迁移自：[Notion数据库的使用](https://docs.tangly1024.com/article/start-to-write)
+> 发布日期：2023-6-27
+> 最后编辑：2024-9-4
+> 原栏目：✒ Notion教程
+> 标签：Notion
+> 摘要：数据库的每一列有不同的功能；
+第一列type表是文章的类型 ，有 post、page、menu这几种类型，post表示博文列表、page表示单独页面、menu是菜单。
+第三列summary 是文章摘要，只有post会用到，显示在文章列表中
+第七列 slug ，在menu中表示跳转到那个页面， 在post和page中表示 这篇文章在博客中的访问地址。
 
 ## 基本操作
 
-- **写作**：在表格 `title` 列点击 **OPEN**，或右上角 **New** 新建。  
-- **排序**：拖拽行左侧六点手柄；部分主题支持置顶逻辑见 `top-tag` 配置。
 
-## 字段说明
+### 如何进行写作？
 
-| 属性 | 必填 | 说明 |
-| --- | --- | --- |
-| `title` | 是 | 标题 |
-| `status` | 是 | 仅 `Published` 会展示 |
-| `type` | 是 | 见下表 |
-| `summary` | 否 | 摘要（列表/搜索） |
-| `date` | 否 | 发布日期 |
-| `category` | 否 | 分类 |
-| `tags` | 否 | 标签 |
-| `slug` | 否 | 路径或外链（见下） |
-| `icon` | 否 | 菜单图标（Page/Menu） |
-| `password` | 否 | 文章密码锁 |
+将鼠标指向数据库表中的title这一栏，会浮现一个OPEN的按钮，点击即可查看编写文章；点击右上角的蓝色**NEW**按钮创建新文章。
 
-### type 类型
+![Untitled](/legacy/29fd085490ca9eee.png)
 
-| type | 作用 |
-| --- | --- |
-| `Post` | 博文，出现在列表 |
-| `Page` | 单页，不在博文列表；可作导航（旧方案） |
-| `Menu` | 自定义菜单项 |
-| `SubMenu` | 子菜单（紧跟在 Menu 后） |
-| `Notice` | 公告 |
-| `Config` | 配置中心表格 |
 
-### slug 规则摘要
+### 如何排序或置顶文章？
 
-- **Menu / SubMenu**：跳转路径，建议 **绝对路径** `/about`；可写完整 URL 外链。  
-- **Page**：单页路径，如 `about` → `https://域名/about`（勿多余前缀）。  
-- **Post**：文章路径，默认常带前缀如 `/article/your-slug`（由 `POST_URL_PREFIX` 等配置决定）。
+Notion数据库支持手动拖拽排序，鼠标选停在表格的左侧会出现六个点构成的按钮，并提示“Drag to move”，此时即可拖动文章进行排序。
 
-## 模板
+![Untitled](/legacy/0698c34b2ec30cde.png)
 
-使用官方复制模板：[tanghh.notion.site 模板](https://tanghh.notion.site/02ab3b8678004aa69e9e415905ef32a5)。
+
+## Notion数据库说明
+
+在部署NotionNext项目时，您必须复制我提供的Notion数据库，这个数据库预先填充了以下字段：
+
+
+## Notion进阶教程
+> **💡** Notion是一个能让效率暴涨的生产力引擎，可以帮你书写文档、管理笔记，搭建知识库，甚至可以为你规划项目、时间管理、组织团队、提高生产力、还有当前最强大的AI技术加持。
+
+如果希望进一步探索Notion的功能，可以尝试《[Notion All in One 搭建高能效率系统](https://www.notion.so/cb321d270b454a56bfa3a7199001daf9?pvs=25)》课程
 
 ## 原文链接
 

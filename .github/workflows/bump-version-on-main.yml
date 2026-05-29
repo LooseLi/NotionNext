@@ -32,9 +32,13 @@ jobs:
           fetch-depth: 0
 
       - name: Bump package.json patch (last segment)
-        run: node scripts/bump-package-patch-version.js
+        id: bump
+        run: |
+          node scripts/bump-package-patch-version.js
+          VERSION=$(node -p "require('./package.json').version")
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
 
-      - name: Commit and push if changed
+      - name: Push version bump branch
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -42,7 +46,13 @@ jobs:
             echo "No version change (unexpected)."
             exit 0
           fi
-          NEW_VER=$(node -p "require('./package.json').version")
+          BRANCH="chore/bump-package-version"
+          git checkout -B "${BRANCH}"
           git add package.json
-          git commit -m "chore(release): bump package.json to ${NEW_VER} [skip-version]"
-          git push
+          git commit -m "chore(release): bump package.json to ${{ steps.bump.outputs.version }} [skip-version]"
+          git push --force-with-lease origin "${BRANCH}"
+          {
+            echo "Version bump branch pushed: \`${BRANCH}\`"
+            echo ""
+            echo "Create a pull request from \`${BRANCH}\` to \`main\` to publish version ${{ steps.bump.outputs.version }}."
+          } >> "$GITHUB_STEP_SUMMARY"

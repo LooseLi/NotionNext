@@ -1,6 +1,10 @@
-﻿# Medium 主题
+# Medium 主题
 
 > 主题 ID：`medium` · 预览：[preview.tangly1024.com/?theme=medium](https://preview.tangly1024.com/?theme=medium)
+
+## 主题预览
+
+![Medium 主题预览](/images/themes-preview/medium.webp)
 
 ## 简介
 

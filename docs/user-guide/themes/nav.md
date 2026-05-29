@@ -1,6 +1,10 @@
-﻿# Nav 主题
+# Nav 主题
 
 > 主题 ID：`nav` · 预览：[preview.tangly1024.com/?theme=nav](https://preview.tangly1024.com/?theme=nav)
+
+## 主题预览
+
+![Nav 主题预览](/images/themes-preview/nav.webp)
 
 ## 简介
 

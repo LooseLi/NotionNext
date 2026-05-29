@@ -11,7 +11,7 @@
 
 ## 分支管理策略
 
-本策略参考 [NotionNext 官方升级教程](https://docs.tangly1024.com/article/how-to-update-notionnext) 中的建议，使用双分支管理模式。
+本策略参考 [NotionNext 官方升级教程](/user-guide/update) 中的建议，使用双分支管理模式。
 
 ### 分支说明
 
@@ -265,7 +265,7 @@ git push origin deploy
 ## 相关资源
 
 - [NotionNext 官方仓库](https://github.com/tangly1024/NotionNext)
-- [NotionNext 文档](https://docs.tangly1024.com/)
+- [NotionNext 文档](/user-guide/intro)
 - [Vercel 文档](https://vercel.com/docs)
 
 ---

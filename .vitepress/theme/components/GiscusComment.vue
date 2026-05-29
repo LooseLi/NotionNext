@@ -8,7 +8,7 @@ import { onMounted, onBeforeUnmount, watch, ref, computed } from 'vue'
 import { useRoute, useData } from 'vitepress'
 
 const route = useRoute()
-const { theme, frontmatter } = useData()
+const { theme, frontmatter, isDark } = useData()
 
 const containerRef = ref<HTMLElement | null>(null)
 const giscus = computed(() => theme.value.giscus)
@@ -23,9 +23,32 @@ const show = computed(() => {
 
 let scriptEl: HTMLScriptElement | null = null
 
+function currentGiscusTheme() {
+  return isDark.value ? 'dark' : 'light'
+}
+
 function destroyGiscus() {
   const el = containerRef.value
   if (el) el.innerHTML = ''
+}
+
+function syncGiscusTheme() {
+  if (typeof window === 'undefined') return
+  const theme = currentGiscusTheme()
+  scriptEl?.setAttribute('data-theme', theme)
+  const iframe = containerRef.value?.querySelector<HTMLIFrameElement>(
+    'iframe.giscus-frame'
+  )
+  iframe?.contentWindow?.postMessage(
+    {
+      giscus: {
+        setConfig: {
+          theme
+        }
+      }
+    },
+    'https://giscus.app'
+  )
 }
 
 function loadGiscus() {
@@ -47,7 +70,7 @@ function loadGiscus() {
   scriptEl.setAttribute('data-reactions-enabled', cfg.reactionsEnabled ?? '1')
   scriptEl.setAttribute('data-emit-metadata', cfg.emitMetadata ?? '0')
   scriptEl.setAttribute('data-input-position', cfg.inputPosition || 'top')
-  scriptEl.setAttribute('data-theme', cfg.theme || 'preferred_color_scheme')
+  scriptEl.setAttribute('data-theme', currentGiscusTheme())
   scriptEl.setAttribute('data-lang', cfg.lang || 'zh-CN')
   scriptEl.setAttribute('data-loading', 'lazy')
   scriptEl.crossOrigin = 'anonymous'
@@ -68,6 +91,13 @@ watch(
   () => route.path,
   () => {
     loadGiscus()
+  }
+)
+
+watch(
+  () => isDark.value,
+  () => {
+    syncGiscusTheme()
   }
 )
 </script>

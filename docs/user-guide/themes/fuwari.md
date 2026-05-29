@@ -1,6 +1,10 @@
-﻿# Fuwari 主题
+# Fuwari 主题
 
 > 主题 ID：`fuwari` · 预览：[preview.tangly1024.com/?theme=fuwari](https://preview.tangly1024.com/?theme=fuwari)
+
+## 主题预览
+
+![Fuwari 主题预览](/images/themes-preview/fuwari.webp)
 
 ## 简介
 
@@ -23,9 +27,9 @@
 2. 环境变量：`NEXT_PUBLIC_THEME=fuwari`
 3. `blog.config.js` 的 `THEME`
 
-## 开发者深度文档
+## 进阶实现文档
 
-实现细节、全局改动与架构说明见 [Fuwari 开发者文档（GitHub）](https://github.com/notionnext-org/NotionNext/blob/main/docs/developer/themes/FUWARI.md)（docs/developer/themes/，与本文站长向说明分工）。
+实现细节、全局改动与架构说明见 [Fuwari 实现文档](../../developer/themes/FUWARI.md)。如果你准备改主题或提交 PR，建议继续阅读。
 
 ## 配置说明
 

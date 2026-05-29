@@ -1,32 +1,45 @@
-# Vercel 静态部署 NotionNext
-
+# Vercel静态部署NotionNext
 > 迁移自：[Vercel静态部署NotionNext](https://docs.tangly1024.com/article/vercel-deploy-notion-next-static)
+> 发布日期：2024-5-10
+> 最后编辑：2024-5-10
+> 原栏目：🚀 安装部署
+> 标签：NotionNext、部署方案
+> 摘要：纯静态部署将牺牲动态获取数据的便利性
 
-## 适用场景
+我目前主要使用Vercel云托管。
 
-站点访客暴增导致 Vercel **Function Execution** 用量超标时，可改为**纯静态导出**：Vercel 只托管 HTML/资源，不再每次请求都跑函数拉 Notion。
+Vercel的个人免费版足够普通的博客网站使用，但如果你的网站运营成功，可能会出现每天有大量的访客访问，这样会快速消耗您Vercel的计费函数，在Vercel后台的Usage中可以看到免费版本的用量。
 
-代价：文章更新后需手动 **Redeploy**（或配置 Webhook），无法像 ISR 那样自动增量更新。
+![Untitled](/legacy/3c76fd3ca07c5dd8.png)
 
-## 配置方式
+此时可以有三种解决方法；
 
-Vercel 项目 **Settings → General → Build Command** 改为：
+1. 充值Vercel会员
 
-```bash
-yarn export
-```
+1. 换平台，例如Netlify部署
 
-（与默认 `yarn build` 不同，会生成静态站点。）
+1. 购买服务器，在自己的VPS上部署。
 
-构建若出现 Notion API 过慢或 `timeout of 300 seconds`，见 **[构建性能调优](./build-tuning.md)**。
+1. 换部署方案，改为纯静态部署.
 
-## 另一种静态方案
 
-[Cloudflare Pages 静态部署](./cloudflare-pages.md) 同样为导出后部署，更新内容后需重新构建。
+## 纯静态部署
 
-## 重新部署
+站点流量太大，为了节省资费，我在一年前开始使用纯静态的部署方案，因为站点是纯静态的，所以vercel只是为我存放了静态文件，无需实时运行函数来抓取数据和渲染网页。
 
-内容变更后：Vercel **Deployments → Redeploy**。详见源站 [vercel-redploy](https://docs.tangly1024.com/article/vercel-redploy)。
+从而极大地减少Vercel中`FunctionExecution`的用量，但代价是我每次发布文章修改内容都要到Vercel后台重新[redeploy](/user-guide/deploy/vercel-redeploy)一下，好在我的文章更新频率不高。
+
+
+### 修改方式
+
+在Vercel项目后台的`General`中，将打包命令改为`yarn export`这种模式是静态运行网站，适合站点访问量大，文章更新不频繁的用户。
+
+![Untitled](/legacy/4deb853606a4f95a.png)
+
+
+### 另一种纯静态部署
+
+另一种就是直接用[Cloudflare的部署方案](/user-guide/deploy/cloudflare-pages)， 而这种方案也是静态导出，需要在更新文章后重新部署。
 
 ## 原文链接
 

@@ -1,6 +1,10 @@
-﻿# Next 主题
+# Next 主题
 
 > 主题 ID：`next` · 预览：[preview.tangly1024.com/?theme=next](https://preview.tangly1024.com/?theme=next)
+
+## 主题预览
+
+![Next 主题预览](/images/themes-preview/next.webp)
 
 ## 简介
 

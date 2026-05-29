@@ -40,7 +40,7 @@ NotionNext 已由个人仓库移交至组织 **[notionnext-org](https://github.c
 - **安全漏洞** → [私密报告](https://github.com/notionnext-org/NotionNext/security/advisories/new)，勿公开 PoC
 - 维护者为志愿者，**无商业 SLA**；请保持友善，遵守 [行为准则](https://github.com/notionnext-org/NotionNext/blob/main/CODE_OF_CONDUCT.md)
 
-旧版 Notion 托管教程仍在 [docs.tangly1024.com](https://docs.tangly1024.com)；新版以仓库 `docs/user-guide/` 为准。
+旧版 Notion 托管教程仍在 [docs.tangly1024.com](/user-guide/intro)；新版以仓库 `docs/user-guide/` 为准。
 
 感谢每一位 Contributor ❤️
 

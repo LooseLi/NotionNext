@@ -1,6 +1,10 @@
-﻿# Example 主题
+# Example 主题
 
 > 主题 ID：`example` · 预览：[preview.tangly1024.com/?theme=example](https://preview.tangly1024.com/?theme=example)
+
+## 主题预览
+
+![Example 主题预览](/images/themes-preview/example.webp)
 
 ## 简介
 

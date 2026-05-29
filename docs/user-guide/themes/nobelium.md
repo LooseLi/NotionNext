@@ -1,6 +1,10 @@
-﻿# Nobelium 主题
+# Nobelium 主题
 
 > 主题 ID：`nobelium` · 预览：[preview.tangly1024.com/?theme=nobelium](https://preview.tangly1024.com/?theme=nobelium)
+
+## 主题预览
+
+![Nobelium 主题预览](/images/themes-preview/nobelium.webp)
 
 ## 简介
 

@@ -1,15 +1,49 @@
-﻿# 内置主题全览（25 个）
+# 内置主题全览（25 个）
 
-> 与 `themes/` 目录及 `conf/themeSwitch.manifest.js` 同步 · 当前版本 **4.9.5.2**  
-> **每个主题均有独立说明** → [主题目录](./)
+> 与 `themes/` 目录及 `conf/themeSwitch.manifest.js` 同步 · 当前版本 **4.9.5.7**  
+> 先按站点目标选主题，再进入单个主题文档看配置。
 
-预览：`https://preview.tangly1024.com/?theme=<id>`（`id` 为下表「ID」，小写）
+预览：`https://preview.tangly1024.com/?theme=<id>`（`id` 为下表主题 ID，小写）。
 
-切换方式：`NEXT_PUBLIC_THEME=<id>`、Notion Config 的 `THEME`、或开启 `THEME_SWITCH` 挂件。
+切换方式：`NEXT_PUBLIC_THEME=<id>`、Notion Config 的 `THEME`，或开启 `THEME_SWITCH` 挂件。
 
----
+## 按场景选主题
 
-## 一览表
+| 你想做什么 | 优先看 | 备选 | 选择理由 |
+| --- | --- | --- | --- |
+| 个人博客 / 日常写作 | [simple](./simple.md)、[hexo](./hexo.md) | [nobelium](./nobelium.md)、[typography](./typography.md) | 结构清楚、文章优先、配置负担低 |
+| 文档 / 知识库 / 教程站 | [gitbook](./gitbook.md)、[claude](./claude.md) | [thoughtlite](./thoughtlite.md) | 侧边栏、目录和阅读连续性更强 |
+| 作品集 / 个人品牌 | [proxio](./proxio.md)、[starter](./starter.md) | [landing](./landing.md) | 首屏表达强，适合展示身份、作品和服务 |
+| 产品官网 / SaaS 落地页 | [starter](./starter.md)、[landing](./landing.md) | [commerce](./commerce.md) | 有产品介绍、功能区块、价格和 CTA 结构 |
+| 图片 / 摄影 / 视觉内容 | [photo](./photo.md)、[plog](./plog.md) | [magzine](./magzine.md) | 图片展示密度更高，适合视觉浏览 |
+| 导航站 / 资源聚合 | [nav](./nav.md) | [gitbook](./gitbook.md) | 更适合分类入口、链接集合和资源导航 |
+| 杂志感 / 强视觉首页 | [magzine](./magzine.md)、[heo](./heo.md) | [fuwari](./fuwari.md) | 首页表现力强，适合内容品牌化 |
+| 游戏 / 互动展示 | [game](./game.md) | [movie](./movie.md) | 适合特殊内容形态和沉浸式展示 |
+
+## 新手怎么选？
+
+如果你还没有明确偏好，按下面规则选择：
+
+- 只是想先跑起来：选 `simple`。
+- 想做传统博客：选 `hexo` 或 `next`。
+- 想做教程/知识库：选 `gitbook`。
+- 想展示个人品牌或服务：选 `proxio`。
+- 想做产品落地页：选 `starter`。
+- 想突出图片：选 `photo`。
+
+部署成功后再换主题也可以，主题 ID 改完重新部署即可。
+
+## 主题预览图
+
+主题预览图位于 `public/images/themes-preview/`。如果你在本地或线上看到预览图缺失，优先检查对应主题是否有 `<id>.webp` 或 `<id>.png`。
+
+常用入口：
+
+- [主题预览站](https://preview.tangly1024.com/)
+- [主题总览说明](./overview.md)
+- [配置站点](../config-site.md)
+
+## 完整主题表
 
 | ID | 名称 | 定位 | 说明文档 |
 | --- | --- | --- | --- |
@@ -22,7 +56,7 @@
 | `matery` | Matery | Material 卡片列表 | [matery.md](./matery.md) |
 | `nobelium` | Nobelium | 极简 | [nobelium.md](./nobelium.md) |
 | `fukasawa` | Fukasawa | 多栏高密度 | [fukasawa.md](./fukasawa.md) |
-| `fuwari` | Fuwari | 日系双栏色板 | [fuwari.md](./fuwari.md) · [FUWARI.md（GitHub）](https://github.com/notionnext-org/NotionNext/blob/main/docs/developer/themes/FUWARI.md) |
+| `fuwari` | Fuwari | 日系双栏色板 | [fuwari.md](./fuwari.md) · [FUWARI.md](../../developer/themes/FUWARI.md) |
 | `typography` | Typography | 排版优先 | [typography.md](./typography.md) |
 | `nav` | Nav | 导航站/聚合 | [nav.md](./nav.md) |
 | `plog` | Plog | 图文/轻博客 | [plog.md](./plog.md) |
@@ -34,32 +68,16 @@
 | `proxio` | Proxio | 作品集/品牌站 | [proxio.md](./proxio.md) |
 | `commerce` | Commerce | 商品展示 | [commerce.md](./commerce.md) |
 | `magzine` | Magazine | 杂志封面风（目录名 `magzine`） | [magzine.md](./magzine.md) |
-| `claude` | Claude | 文档风 + 贡献热力图首页 | [claude.md](./claude.md) · [CLAUDE.md（GitHub）](https://github.com/notionnext-org/NotionNext/blob/main/docs/developer/themes/CLAUDE.md) |
-| `endspace` | Endspace | 终末工业风加载与侧栏 | [endspace.md](./endspace.md) · [ENDSPACE.md（GitHub）](https://github.com/notionnext-org/NotionNext/blob/main/docs/developer/themes/ENDSPACE.md) |
+| `claude` | Claude | 文档风 + 贡献热力图首页 | [claude.md](./claude.md) · [CLAUDE.md](../../developer/themes/CLAUDE.md) |
+| `endspace` | Endspace | 终末工业风加载与侧栏 | [endspace.md](./endspace.md) · [ENDSPACE.md](../../developer/themes/ENDSPACE.md) |
 | `example` | Example | 主题开发骨架 | [example.md](./example.md) |
-| `thoughtlite` | ThoughtLite | 时间线首页 + Latest 卡片 | [thoughtlite.md](./thoughtlite.md) · [THOUGHTLITE.md（GitHub）](https://github.com/notionnext-org/NotionNext/blob/main/docs/developer/themes/THOUGHTLITE.md) |
-
----
-
-## 按场景选型
-
-| 场景 | 推荐主题 | 说明 |
-| --- | --- | --- |
-| 个人文字博客 | `simple`、`hexo`、`nobelium`、`typography` | [simple](./simple.md) · [hexo](./hexo.md) |
-| 文档/知识库 | `gitbook`、`claude` | [gitbook](./gitbook.md) · [claude](./claude.md) |
-| 作品集 / 品牌 | `proxio`、`starter`、`landing` | [proxio](./proxio.md) · [starter](./starter.md) |
-| 图片 / 相册 | `plog`、`photo` | [plog](./plog.md) · [photo](./photo.md) |
-| 导航聚合 | `nav` | [nav](./nav.md) |
-| 杂志/视觉 | `magzine`、`heo` | [magzine](./magzine.md) · [heo](./heo.md) |
-| 阅读体验 | `medium`、`fuwari`、`thoughtlite` | [medium](./medium.md) · [thoughtlite](./thoughtlite.md) |
-
----
+| `thoughtlite` | ThoughtLite | 时间线首页 + Latest 卡片 | [thoughtlite.md](./thoughtlite.md) · [THOUGHTLITE.md](../../developer/themes/THOUGHTLITE.md) |
 
 ## 主题切换挂件
 
 `NEXT_PUBLIC_THEME_SWITCH=true` 时，使用 `THEME_SWITCH_MANIFEST` 中的名称、简介与 `public/images/themes-preview/<id>.png|webp`。
 
-新增主题贡献需提交预览图并更新 manifest，见 [THEME_MIGRATION_GUIDE.zh-CN.md（GitHub）](https://github.com/notionnext-org/NotionNext/blob/main/docs/developer/THEME_MIGRATION_GUIDE.zh-CN.md)。
+新增主题贡献需提交预览图并更新 manifest，见 [THEME_MIGRATION_GUIDE.zh-CN.md](../../developer/THEME_MIGRATION_GUIDE.zh-CN.md)。
 
 ## 维护说明
 

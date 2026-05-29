@@ -2,9 +2,9 @@
 
 源站：[https://docs.tangly1024.com](https://docs.tangly1024.com/about)
 
-目标：`docs/user-guide/` + `docs/developer/themes/`
+目标：`docs/user-guide/`
 
-**状态：核心栏目已全部迁入本地 Markdown**；**2026-05 起按 4.9.5.2 全面修订**（见下方「内容刷新」）。对照表：[ARTICLE_INDEX.md](./ARTICLE_INDEX.md)。
+**状态：旧站导航中的 104 个页面已全部迁入本地 Markdown**；正文、图片链接、原文 URL 与基础元数据已从 `docs.tangly1024.com` 的 NotionNext 页面数据导入。对照表：[ARTICLE_INDEX.md](./ARTICLE_INDEX.md)。
 
 ## 已迁移（按栏目）
 
@@ -41,7 +41,7 @@
 | --- | --- |
 | `v4.0` 超长 changelog | [changelog/v4-history.md](./changelog/v4-history.md) 索引 + GitHub Releases |
 | `latest` | [changelog/latest.md](./changelog/latest.md) |
-| `example-1` | [notion/example-article.md](./notion/example-article.md) + [旧站原文](https://docs.tangly1024.com/article/example-1) |
+| `example-1` | [notion/example-article.md](./notion/example-article.md) + [旧站原文](/user-guide/notion/example-article) |
 | `notion-tutorial` | 付费课程外链 |
 | `vercel-accelerate`、`vercel-redploy` | [deploy/vercel-accelerate.md](./deploy/vercel-accelerate.md)、[deploy/vercel-redeploy.md](./deploy/vercel-redeploy.md) |
 
@@ -49,7 +49,7 @@
 
 - 用户向导航：[help/legacy-docs.md](./help/legacy-docs.md)（slug 对照 + 旧站直达）
 - 文档站页底：[Giscus](https://giscus.app/zh-CN) → `notionnext-org/NotionNext` Discussions（见 [maintain-docs.md](./maintain-docs.md)）
-- 维护者批量拉取：`node scripts/migrate-legacy-docs.mjs`
+- 维护者批量拉取：`node scripts/import-legacy-docs.mjs`
 
 ## 维护
 

@@ -1,55 +1,63 @@
-﻿# GitBook 主题
+# Gitbook主题
+> 迁移自：[Gitbook主题](https://docs.tangly1024.com/article/notionnext-gitbook)
+> 发布日期：2023-6-27
+> 最后编辑：2024-9-12
+> 原栏目：⭐ 主题参数
 
-> 主题 ID：`gitbook` · 预览：[preview.tangly1024.com/?theme=gitbook](https://preview.tangly1024.com/?theme=gitbook)
 
-## 简介
+## 主题预览
 
-文档与手册式侧栏目录结构。
+![GitBook 主题预览](/images/themes-preview/gitbook.webp)
 
-## 主题特性
+## Gitbook主题说明
 
-- **定位**：文档与手册式侧栏目录结构。
-- **适用场景**：技术文档、手册侧栏目录
-- **配置前缀**：`GITBOOK_*`（共 **11** 项，见下方配置表）
-- **在线预览**：[preview.tangly1024.com/?theme=gitbook](https://preview.tangly1024.com/?theme=gitbook)
+> **💡** V4.4.4 2024-04-25更新
+左侧导航栏支持自动折叠：文章导航，展开一个文件夹时，其它文件夹自动折叠；从而确保一次只展开一个，便于阅读。
 
-## 适用场景
+可参考我的文档:
 
-技术文档、手册侧栏目录
+![Untitled](/legacy/af82382495ca03d2.png)
 
-## 启用方式
 
-1. Notion Config 表：`THEME` = `gitbook`
-2. 环境变量：`NEXT_PUBLIC_THEME=gitbook`
-3. `blog.config.js` 的 `THEME`
+### 三处注意
 
-## 配置说明
+1. 使用Category（分类）来控制左侧的一级标题
 
-配置文件：[`themes/gitbook/config.js`](https://github.com/notionnext-org/NotionNext/blob/main/themes/gitbook/config.js)  
-也可在 **Notion Config** 表中填写同名键（对象/数组用 JSON）。
+1. 需要创建一个 `slug`=`about `的关于页面，作为整篇文档的首页。
 
-<!-- theme-config-table -->
+1. 排序：站点开启了自动排序功能，优先将分类名相同的内容聚在一起，没有分类的文章则会被置顶，如果需要调整排序，则关闭GITBOOK_AUTO_SORT，手动拖拽文章排序，并将同分类的文章靠在一起即可。
 
-### 主要配置项
+![Untitled](/legacy/d539a228faaed6f0.png)
 
-| 配置键 | 说明 |
-| --- | --- |
-| `GITBOOK_INDEX_PAGE` | 见 config.js |
-| `GITBOOK_AUTO_SORT` | 见 config.js |
-| `GITBOOK_LATEST_POST_RED_BADGE` | 见 config.js |
-| `GITBOOK_MENU_CATEGORY` | 见 config.js |
-| `GITBOOK_BOOK_MENU_TAG` | 见 config.js |
-| `GITBOOK_MENU_ARCHIVE` | 见 config.js |
-| `GITBOOK_MENU_SEARCH` | 见 config.js |
-| `GITBOOK_EXCLUSIVE_COLLAPSE` | 见 config.js |
-| `GITBOOK_FOLDER_HOVER_EXPAND` | 见 config.js |
-| `GITBOOK_WIDGET_REVOLVER_MAPS` | 见 config.js |
-| `GITBOOK_WIDGET_TO_TOP` | 见 config.js |
 
-<!-- /theme-config-table -->
+### gitbook支持的相关配置
 
-## 相关
+```JavaScript
+const CONFIG = {
+  GITBOOK_INDEX_PAGE: 'about', // 文档首页显示的文章，请确此路径包含在您的notion数据库中
 
-- [内置主题全览](./THEMES_CATALOG.md)
-- [如何配置站点](../config-site.md)
-- [菜单 Menu / SubMenu](../menu-secondary.md)
+  GITBOOK_AUTO_SORT: process.env.NEXT_PUBLIC_GITBOOK_AUTO_SORT || true, // 是否自动按分类名 归组排序文章；自动归组可能会打乱您Notion中的文章顺序
+
+  GITBOOK_LATEST_POST_RED_BADGE:
+    process.env.NEXT_PUBLIC_GITBOOK_LATEST_POST_RED_BADGE || true, // 是否给最新文章显示红点
+
+  // 菜单
+  GITBOOK_MENU_CATEGORY: true, // 显示分类
+  GITBOOK_BOOK_MENU_TAG: true, // 显示标签
+  GITBOOK_MENU_ARCHIVE: true, // 显示归档
+  GITBOOK_MENU_SEARCH: true, // 显示搜索
+
+  // 导航文章自动排他折叠
+  GITBOOK_EXCLUSIVE_COLLAPSE: true, // 一次只展开一个分类，其它文件夹自动关闭。
+
+  // Widget
+  GITBOOK_WIDGET_REVOLVER_MAPS:
+    process.env.NEXT_PUBLIC_WIDGET_REVOLVER_MAPS || 'false', // 地图插件
+  GITBOOK_WIDGET_TO_TOP: true // 跳回顶部
+}
+export default CONFIG
+```
+
+## 原文链接
+
+https://docs.tangly1024.com/article/notionnext-gitbook

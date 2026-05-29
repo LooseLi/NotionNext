@@ -1,52 +1,57 @@
-﻿# Typography 主题
+# Typography主题
+> 迁移自：[Typography主题](https://docs.tangly1024.com/article/notion-next-typography)
+> 发布日期：2025-7-7
+> 最后编辑：2026-4-30
+> 原栏目：⭐ 主题参数
 
-> 主题 ID：`typography` · 预览：[preview.tangly1024.com/?theme=typography](https://preview.tangly1024.com/?theme=typography)
 
-## 简介
+> **💡**
+>
+新主题，需要升级到V4.8.6 之后的版本才能使用
 
-排版优先，强调正文阅读与层级。
 
-## 主题特性
+## 致谢
 
-- **定位**：排版优先，强调正文阅读与层级。
-- **适用场景**：排版优先、少干扰
-- **配置前缀**：`TYPOGRAPHY_*`（共 **8** 项，见下方配置表）
-- **在线预览**：[preview.tangly1024.com/?theme=typography](https://preview.tangly1024.com/?theme=typography)
+感谢[Yakiisama](https://github.com/yakiisama)贡献的主题！
 
-## 适用场景
+![image.png](/legacy/316e2bfe81cd54b1.png)
 
-排版优先、少干扰
 
-## 启用方式
+## 主题预览
 
-1. Notion Config 表：`THEME` = `typography`
-2. 环境变量：`NEXT_PUBLIC_THEME=typography`
-3. `blog.config.js` 的 `THEME`
+![Typography 主题预览](/images/themes-preview/typography.webp)
 
-## 配置说明
+点此预览： [https://preview.tangly1024.com/en?theme=typography](https://preview.tangly1024.com/en?theme=typography)
 
-配置文件：[`themes/typography/config.js`](https://github.com/notionnext-org/NotionNext/blob/main/themes/typography/config.js)  
-也可在 **Notion Config** 表中填写同名键（对象/数组用 JSON）。
+![image.png](/legacy/b20c15283f5bfc1e.png)
 
-<!-- theme-config-table -->
 
-### 主要配置项
+## 使用
 
-| 配置键 | 说明 |
-| --- | --- |
-| `TYPOGRAPHY_BLOG_NAME` | 见 config.js |
-| `TYPOGRAPHY_BLOG_NAME_EN` | 见 config.js |
-| `TYPOGRAPHY_POST_AD_ENABLE` | 见 config.js |
-| `TYPOGRAPHY_POST_COVER_ENABLE` | 见 config.js |
-| `TYPOGRAPHY_ARTICLE_RECOMMEND_POSTS` | 见 config.js |
-| `TYPOGRAPHY_MENU_CATEGORY` | 见 config.js |
-| `TYPOGRAPHY_MENU_TAG` | 见 config.js |
-| `TYPOGRAPHY_MENU_ARCHIVE` | 见 config.js |
+在配置文件或环境变量中将主题修改为typography即可。
 
-<!-- /theme-config-table -->
+需要注意，此主题的首页标题读取的是配置文件 /themes/typography/config.js 中的内容，而非默认的读取notion数据库标题，因此需要手动修改。（支持环境变量或Notion_Config修改）。
 
-## 相关
+```JavaScript
+const CONFIG = {
+  // 博客標題 雙語言
+  TYPOGRAPHY_BLOG_NAME: process.env.NEXT_PUBLIC_TYPOGRAPHY_BLOG_NAME || '活字印刷',
+  TYPOGRAPHY_BLOG_NAME_EN: process.env.NEXT_PUBLIC_TYPOGRAPHY_BLOG_NAME || 'Typography',
 
-- [内置主题全览](./THEMES_CATALOG.md)
-- [如何配置站点](../config-site.md)
-- [菜单 Menu / SubMenu](../menu-secondary.md)
+  TYPOGRAPHY_POST_AD_ENABLE: process.env.NEXT_PUBLIC_TYPOGRAPHY_POST_AD_ENABLE || false, // 文章列表是否插入广告
+
+  TYPOGRAPHY_POST_COVER_ENABLE: process.env.NEXT_PUBLIC_TYPOGRAPHY_POST_COVER_ENABLE || false, // 是否展示博客封面
+
+  TYPOGRAPHY_ARTICLE_RECOMMEND_POSTS: process.env.NEXT_PUBLIC_TYPOGRAPHY_ARTICLE_RECOMMEND_POSTS || true, // 文章详情底部显示推荐
+
+  // 菜单配置
+  TYPOGRAPHY_MENU_CATEGORY: true, // 显示分类
+  TYPOGRAPHY_MENU_TAG: true, // 显示标签
+  TYPOGRAPHY_MENU_ARCHIVE: true, // 显示归档
+}
+export default CONFIG
+```
+
+## 原文链接
+
+https://docs.tangly1024.com/article/notion-next-typography

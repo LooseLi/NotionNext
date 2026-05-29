@@ -262,6 +262,19 @@ const nextConfig = {
 
       return [
         ...langsRewrites,
+        // RSS fallback: when static file doesn't exist, route to API
+        {
+          source: '/rss/feed.xml',
+          destination: '/api/rss'
+        },
+        {
+          source: '/rss/atom.xml',
+          destination: '/api/rss?format=atom'
+        },
+        {
+          source: '/rss/feed.json',
+          destination: '/api/rss?format=json'
+        },
         // 伪静态重写
         {
           source: '/:path*.html',

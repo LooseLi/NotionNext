@@ -6,6 +6,8 @@
 
 源码与 GitHub 上的 Markdown **一一对应**；改仓库 → 合并 `main` → 自动发布。
 
+每一次文档修正都会帮助后来的站长少踩一次坑。参与维护文档的开发者会出现在 [文档提交记录](https://github.com/notionnext-org/NotionNext/commits/main/docs) 与 [致谢页](./acknowledgements.md) 中。
+
 ## 改当前这一页
 
 任意教程页底部有 **「在 GitHub 上维护此页」**，直达该文件的编辑界面。
@@ -15,13 +17,13 @@
 | 链接 | 说明 |
 | --- | --- |
 | [docs/](https://github.com/notionnext-org/NotionNext/tree/main/docs) | 目录说明（本 README 在 GitHub 可见） |
-| [docs/user-guide/](https://github.com/notionnext-org/NotionNext/tree/main/docs/user-guide) | **在线站主体**，改教程只动这里 |
-| [docs/developer/](https://github.com/notionnext-org/NotionNext/tree/main/docs/developer) | 开发者文档（不进在线站） |
+| [docs/user-guide/](https://github.com/notionnext-org/NotionNext/tree/main/docs/user-guide) | 使用教程、主题配置、运营与维护 |
+| [docs/developer/](https://github.com/notionnext-org/NotionNext/tree/main/docs/developer) | 架构、贡献、主题迁移与维护文档（在线站可见） |
 
 ## 推荐流程（贡献者）
 
 1. Fork [notionnext-org/NotionNext](https://github.com/notionnext-org/NotionNext) 或具备组织仓库写权限。  
-2. 编辑 `docs/user-guide/**/*.md`（主题配置表可运行 `node scripts/generate-theme-user-docs.mjs`）。  
+2. 编辑 `docs/user-guide/**/*.md` 或 `docs/developer/**/*.md`（主题配置表可运行 `node scripts/generate-theme-user-docs.mjs`）。
 3. 本地预览：`yarn docs:site:dev`。  
 4. 提交 PR，合并 **`main`** 后由 GitHub Actions 部署。  
 
@@ -39,7 +41,7 @@ push main（docs/user-guide/ 等变更）
 
 ## 与旧版在线手册
 
-[docs.tangly1024.com](https://docs.tangly1024.com) 为历史 Notion 托管；**以 `docs/user-guide/` 与 notionnext.tangly1024.com 为准**。
+[docs.tangly1024.com](/user-guide/intro) 为历史 Notion 托管；**以 `docs/user-guide/` 与 notionnext.tangly1024.com 为准**。
 
 - slug 对照与旧站直达：[help/legacy-docs.md](./help/legacy-docs.md) · [ARTICLE_INDEX.md](./ARTICLE_INDEX.md)
 - 可选批量拉取旧文：`node scripts/migrate-legacy-docs.mjs --slug <slug>`（加 `--images` 下载图片到 `docs/public/legacy/`）

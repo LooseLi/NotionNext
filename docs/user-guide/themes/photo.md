@@ -1,6 +1,10 @@
-﻿# Photo 主题
+# Photo 主题
 
 > 主题 ID：`photo` · 预览：[preview.tangly1024.com/?theme=photo](https://preview.tangly1024.com/?theme=photo)
+
+## 主题预览
+
+![Photo 主题预览](/images/themes-preview/photo.webp)
 
 ## 简介
 

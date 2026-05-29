@@ -1,6 +1,10 @@
-﻿# Landing 主题
+# Landing 主题
 
 > 主题 ID：`landing` · 预览：[preview.tangly1024.com/?theme=landing](https://preview.tangly1024.com/?theme=landing)
+
+## 主题预览
+
+![Landing 主题预览](/images/themes-preview/landing.webp)
 
 ## 简介
 

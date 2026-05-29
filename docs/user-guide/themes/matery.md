@@ -1,6 +1,10 @@
-﻿# Matery 主题
+# Matery 主题
 
 > 主题 ID：`matery` · 预览：[preview.tangly1024.com/?theme=matery](https://preview.tangly1024.com/?theme=matery)
+
+## 主题预览
+
+![Matery 主题预览](/images/themes-preview/matery.webp)
 
 ## 简介
 

@@ -1,58 +1,61 @@
-﻿# Commerce 主题
+# Commerce主题
+> 迁移自：[Commerce主题](https://docs.tangly1024.com/article/notionnext-commerce)
+> 发布日期：2024-3-24
+> 最后编辑：2024-9-12
+> 原栏目：⭐ 主题参数
 
-> 主题 ID：`commerce` · 预览：[preview.tangly1024.com/?theme=commerce](https://preview.tangly1024.com/?theme=commerce)
 
-## 简介
+## 主题预览
 
-电商与商品展示向页面结构。
+![Commerce 主题预览](/images/themes-preview/commerce.webp)
 
-## 主题特性
+可以搭建一个简易企业产品官网的 主题，在线预览：（以下是本主题的赞助商）
 
-- **定位**：电商与商品展示向页面结构。
-- **适用场景**：商品展示页
-- **配置前缀**：`COMMERCE_*`（共 **14** 项，见下方配置表）
-- **在线预览**：[preview.tangly1024.com/?theme=commerce](https://preview.tangly1024.com/?theme=commerce)
+[shuida123.com](http://shuida123.com/)
 
-## 适用场景
 
-商品展示页
+### 开启方式
 
-## 启用方式
+更新代码至最新的4.4.2；并配置主题为commerce即可。
 
-1. Notion Config 表：`THEME` = `commerce`
-2. 环境变量：`NEXT_PUBLIC_THEME=commerce`
-3. `blog.config.js` 的 `THEME`
 
-## 配置说明
+## Commerce 主题
 
-配置文件：[`themes/commerce/config.js`](https://github.com/notionnext-org/NotionNext/blob/main/themes/commerce/config.js)  
-也可在 **Notion Config** 表中填写同名键（对象/数组用 JSON）。
+该主题暂时没有特异功能，后期预计会加入一个多张封面图轮播的功能。
 
-<!-- theme-config-table -->
 
-### 主要配置项
+### 产品中心
 
-| 配置键 | 说明 |
-| --- | --- |
-| `COMMERCE_HOME_BANNER_ENABLE` | 见 config.js |
-| `COMMERCE_TEXT_CENTER_TITLE` | 见 config.js |
-| `COMMERCE_TEXT_CENTER_DESCRIPTION` | 见 config.js |
-| `COMMERCE_TEXT_CENTER_CATEGORY_TITLE` | 见 config.js |
-| `COMMERCE_TEXT_FOOTER_TITLE` | 见 config.js |
-| `COMMERCE_TEXT_FOOTER_MENU_1` | 见 config.js |
-| `COMMERCE_TEXT_FOOTER_MENU_2` | 见 config.js |
-| `COMMERCE_FOOTER_RIGHT_IMG_URL` | 见 config.js |
-| `COMMERCE_FOOTER_RIGHT_TEXT` | 见 config.js |
-| `COMMERCE_HOME_POSTS_COUNT` | 见 config.js |
-| `COMMERCE_CONTACT_WHATSAPP_SHOW` | 见 config.js |
-| `COMMERCE_CONTACT_TELEGRAM_SHOW` | 见 config.js |
-| `COMMERCE_ARTICLE_COPYRIGHT` | 见 config.js |
-| `COMMERCE_ARTICLE_NOT_BY_AI` | 见 config.js |
+特色组件，首页会根据category分类，用一个可点击切换的tab组件展示您的文章。左侧显示目前的分类，右侧显示该分类下的所有post。
 
-<!-- /theme-config-table -->
+![Untitled](/legacy/536b21ad45cf95ad.png)
 
-## 相关
 
-- [内置主题全览](./THEMES_CATALOG.md)
-- [如何配置站点](../config-site.md)
-- [菜单 Menu / SubMenu](../menu-secondary.md)
+### 配置参考
+
+在/themes/commerce/config.js 中可以看到该主题支持的配置
+
+```CSS
+const CONFIG = {
+  // 封面大图开启
+  COMMERCE_HOME_BANNER_ENABLE: true,
+
+  COMMERCE_TEXT_CENTER_TITLE: 'Product Center', //中间产品区块标题
+  COMMERCE_TEXT_CENTER_DESCRIPTION:
+    'The vision of NotionNext is to help you effortlessly and seamlessly build your own website, amplifying the value of your brand.', // 中间产品区块文字描述
+  COMMERCE_TEXT_CENTER_CATEGORY_TITLE: 'Product Categories', //左侧产品分类标题
+  COMMERCE_TEXT_FOOTER_TITLE: 'Contact US', // COMMERCE主题页脚文案标题；按Shift+Enter键可以换行
+  COMMERCE_TEXT_FOOTER_MENU_1: 'Product Center', //COMMERCE主题页脚左侧菜单标题1
+  COMMERCE_TEXT_FOOTER_MENU_2: 'About US', //COMMERCE主题页脚左侧菜单标题2
+  COMMERCE_HOME_POSTS_COUNT: 9, //首页展示商品数
+  COMMERCE_CONTACT_WHATSAPP_SHOW: true, //是否展示whatsapp联系按钮 请配置 CONTACT_WHATSAPP
+  COMMERCE_CONTACT_TELEGRAM_SHOW: true //联系栏展示telegram按钮 请配置 CONTACT_TELEGRAM
+}
+export default CONFIG
+```
+
+文档不断完善中，有问题可以留言。
+
+## 原文链接
+
+https://docs.tangly1024.com/article/notionnext-commerce

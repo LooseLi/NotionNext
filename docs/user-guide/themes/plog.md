@@ -1,6 +1,10 @@
-﻿# Plog 主题
+# Plog 主题
 
 > 主题 ID：`plog` · 预览：[preview.tangly1024.com/?theme=plog](https://preview.tangly1024.com/?theme=plog)
+
+## 主题预览
+
+![Plog 主题预览](/images/themes-preview/plog.webp)
 
 ## 简介
 

@@ -1,6 +1,6 @@
 ﻿# 参与社区
 
-NotionNext 已由个人仓库移交至组织 **[notionnext-org](https://github.com/notionnext-org)**，欢迎**既是站长又是开发者**的参与者一起维护代码与文档。
+NotionNext 已由个人仓库移交至组织 **[notionnext-org](https://github.com/notionnext-org)**，欢迎**既是站长又是开发者**的参与者一起维护代码与文档。所有参与代码、主题、文档、Issue、Review 与发布维护的贡献者，都会在 [致谢页](./acknowledgements.md) 与 GitHub 贡献记录中被看见。
 
 ## 四步参与路径
 
@@ -18,7 +18,7 @@ NotionNext 已由个人仓库移交至组织 **[notionnext-org](https://github.c
 
 - **在线文档**：[notionnext.tangly1024.com](https://notionnext.tangly1024.com)  
 - **快速开始**：[介绍](./intro.md) → [Vercel 部署](./deploy-vercel.md)  
-- **旧版 Notion 教程**：[docs.tangly1024.com](https://docs.tangly1024.com)（历史截图）
+- **旧版 Notion 教程**：[docs.tangly1024.com](/user-guide/intro)（历史截图）
 
 ### 2. 提问与讨论
 
@@ -38,7 +38,7 @@ NotionNext 已由个人仓库移交至组织 **[notionnext-org](https://github.c
 3. 本地预览：`yarn docs:site:dev`  
 4. 按 [CONTRIBUTING.zh-CN.md](https://github.com/notionnext-org/NotionNext/blob/main/CONTRIBUTING.zh-CN.md) 提 PR  
 
-详细流程：[参与维护在线文档](./maintain-docs.md) · [维护工作流](./MAINTENANCE_WORKFLOW.md)
+详细流程：[参与维护在线文档](./maintain-docs.md) · [维护工作流](./MAINTENANCE_WORKFLOW.md) · [致谢](./acknowledgements.md)
 
 **改代码 / 主题**：阅读 [开发者文档（GitHub）](https://github.com/notionnext-org/NotionNext/blob/main/docs/developer/README.md) · [贡献指南](https://github.com/notionnext-org/NotionNext/blob/main/CONTRIBUTING.zh-CN.md) · 大改动先写 [RFC（GitHub）](https://github.com/notionnext-org/NotionNext/blob/main/docs/developer/rfc/README.md)
 

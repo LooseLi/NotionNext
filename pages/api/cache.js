@@ -5,7 +5,7 @@ import { cleanCache } from '@/lib/cache/local_file_cache'
  * @param {*} req
  * @param {*} res
  */
-export default async function handler(req, res) {
+export default function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ status: 'error', message: 'Method not allowed' })
   }
@@ -16,7 +16,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    await cleanCache()
+    cleanCache()
     res.status(200).json({ status: 'success', message: 'Clean cache successful!' })
   } catch (error) {
     console.error('Cache clean error:', error)

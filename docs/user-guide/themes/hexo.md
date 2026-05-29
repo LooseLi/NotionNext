@@ -1,6 +1,10 @@
-﻿# Hexo 主题
+# Hexo 主题
 
 > 主题 ID：`hexo` · 预览：[preview.tangly1024.com/?theme=hexo](https://preview.tangly1024.com/?theme=hexo)
+
+## 主题预览
+
+![Hexo 主题预览](/images/themes-preview/hexo.webp)
 
 ## 简介
 

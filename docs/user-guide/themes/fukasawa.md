@@ -1,6 +1,10 @@
-﻿# Fukasawa 主题
+# Fukasawa 主题
 
 > 主题 ID：`fukasawa` · 预览：[preview.tangly1024.com/?theme=fukasawa](https://preview.tangly1024.com/?theme=fukasawa)
+
+## 主题预览
+
+![Fukasawa 主题预览](/images/themes-preview/fukasawa.webp)
 
 ## 简介
 
