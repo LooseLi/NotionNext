@@ -64,7 +64,7 @@ export default function Header(props) {
   useEffect(() => {
     scrollTrigger()
     setOpen(false)
-    window.addEventListener('scroll', scrollTrigger)
+    window.addEventListener('scroll', scrollTrigger, { passive: true })
     return () => {
       window.removeEventListener('scroll', scrollTrigger)
     }

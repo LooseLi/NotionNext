@@ -21,11 +21,21 @@ export default defineConfig({
   srcExclude,
   cleanUrls: true,
   lastUpdated: true,
+  vite: {
+    css: {
+      postcss: {
+        plugins: []
+      }
+    }
+  },
   ignoreDeadLinks: [/^https?:\/\//],
   head: [
     ['link', { rel: 'icon', href: '/brand/notionnext-logo.png', type: 'image/png' }],
     ['link', { rel: 'apple-touch-icon', href: '/brand/notionnext-logo.png' }]
   ],
+  transformHtml(html) {
+    return html.replace(/rel="preload stylesheet"/g, 'rel="stylesheet"')
+  },
   themeConfig: {
     logo: '/brand/notionnext-logo.png',
     nav: [
