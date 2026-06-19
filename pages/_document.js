@@ -58,6 +58,19 @@ class MyDocument extends Document {
     return (
       <Html lang={BLOG.LANG}>
         <Head>
+          {BLOG.FONT_AWESOME && (
+            <>
+              <link
+                rel='preconnect'
+                href='https://cdnjs.cloudflare.com'
+                crossOrigin='anonymous'
+              />
+              <link rel='dns-prefetch' href='//cdnjs.cloudflare.com' />
+            </>
+          )}
+          <link rel='preconnect' href='https://images.unsplash.com' />
+          <link rel='dns-prefetch' href='//images.unsplash.com' />
+
           {/* 预加载字体 */}
           {BLOG.FONT_AWESOME && (
             <>
