@@ -40,7 +40,9 @@ export default function LazyImage({
   const defaultPlaceholderSrc = siteConfig('IMG_LAZY_LOAD_PLACEHOLDER')
   const imageRef = useRef(null)
   const [currentSrc, setCurrentSrc] = useState(
-    placeholderSrc || defaultPlaceholderSrc
+    priority && src
+      ? adjustImgSize(src, targetImageWidth)
+      : placeholderSrc || defaultPlaceholderSrc
   )
 
   /**

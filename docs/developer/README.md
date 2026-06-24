@@ -10,6 +10,7 @@
 | 主题 | 中文 | English |
 | --- | --- | --- |
 | 快速上手 | [GETTING_STARTED.md](./GETTING_STARTED.md) | [GETTING_STARTED.en.md](./GETTING_STARTED.en.md) |
+| 愿景与路线图 | [VISION_ROADMAP.md](./VISION_ROADMAP.md) | — |
 | 架构总览 | [ARCHITECTURE.md](./ARCHITECTURE.md) | [ARCHITECTURE.en.md](./ARCHITECTURE.en.md) |
 | 目录与模块 | [PROJECT_STRUCTURE.md](./PROJECT_STRUCTURE.md) | [PROJECT_STRUCTURE.en.md](./PROJECT_STRUCTURE.en.md) |
 | 配置体系 | [CONFIGURATION.md](./CONFIGURATION.md) | [CONFIGURATION.en.md](./CONFIGURATION.en.md) |
@@ -21,6 +22,7 @@
 | 主题迁移 | [THEME_MIGRATION_GUIDE.zh-CN.md](./THEME_MIGRATION_GUIDE.zh-CN.md) | [THEME_MIGRATION_GUIDE.md](./THEME_MIGRATION_GUIDE.md) |
 | 版本更新说明 | [UPDATE.md](./UPDATE.md) | — |
 | 社区路线图 | [COMMUNITY_SITE_ROADMAP.md](./COMMUNITY_SITE_ROADMAP.md) | — |
+| 5.0 愿景与参与方向 | [VISION_ROADMAP.md](./VISION_ROADMAP.md) | — |
 
 仓库贡献总则：[CONTRIBUTING.zh-CN.md](../../CONTRIBUTING.zh-CN.md) · 用户向 [参与社区](../user-guide/community-participate.md) · [MAINTAINERS.md](../../MAINTAINERS.md)
 
