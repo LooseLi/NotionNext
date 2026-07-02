@@ -7,7 +7,7 @@ const PostListScroll = ({ posts = [] }) => {
   const { locale, NOTION_CONFIG } = useGlobal()
   const [page, setPage] = useState(1)
   const loadingRef = useRef(null)
-  const POSTS_PER_PAGE = siteConfig('POSTS_PER_PAGE', 12, NOTION_CONFIG)
+  const POSTS_PER_PAGE = parseInt(siteConfig('POSTS_PER_PAGE', 12, NOTION_CONFIG), 10)
   const hasMore = page * POSTS_PER_PAGE < posts.length
   const postsToShow = posts.slice(0, page * POSTS_PER_PAGE)
 

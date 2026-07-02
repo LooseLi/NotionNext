@@ -20,9 +20,12 @@ const FloatingControls = ({ toc, ...props }) => {
   const rafRef = useRef(null)
   const percentRef = useRef(0)
   const activeSectionRef = useRef(null)
+  const hasToc = toc && toc.length > 0
   
   // -- TOC Logic --
   const updateScrollState = useCallback(() => {
+    if (!hasToc) return
+
     const scrollTop = window.scrollY
     const docHeight = document.documentElement.scrollHeight - window.innerHeight
     const nextPercent = docHeight > 0 ? Math.min((scrollTop / docHeight) * 100, 100) : 0
@@ -54,7 +57,7 @@ const FloatingControls = ({ toc, ...props }) => {
       activeSectionRef.current = currentSectionId
       setActiveSection(currentSectionId)
     }
-  }, [])
+  }, [hasToc])
 
   const onScroll = useCallback(() => {
     if (rafRef.current) {
@@ -67,6 +70,8 @@ const FloatingControls = ({ toc, ...props }) => {
   }, [updateScrollState])
 
   useEffect(() => {
+    if (!hasToc) return
+
     window.addEventListener('scroll', onScroll, { passive: true })
     onScroll()
     return () => {
@@ -75,7 +80,7 @@ const FloatingControls = ({ toc, ...props }) => {
       }
       window.removeEventListener('scroll', onScroll)
     }
-  }, [onScroll])
+  }, [hasToc, onScroll])
 
   const handleScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -221,7 +226,7 @@ const FloatingControls = ({ toc, ...props }) => {
              />
 
              {/* TOC - Only on Article Pages */}
-             {toc && toc.length > 0 && (
+             {hasToc && (
                  <ControlBtn 
                     icon={IconListTree} 
                     label="Table of Contents" 
@@ -234,7 +239,7 @@ const FloatingControls = ({ toc, ...props }) => {
              )}
 
              {/* Comments - Only on Article Pages (approximated by TOC presence) */}
-             {toc && toc.length > 0 && (
+             {hasToc && (
                  <ControlBtn 
                     icon={IconMessage} 
                     label="Jump to Comments" 

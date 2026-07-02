@@ -353,6 +353,160 @@ describe('Notion data format compatibility', () => {
     ])
   })
 
+  it('matches multi-select contains filters when values are comma-separated', () => {
+    const blockMap = {
+      block: {
+        tech_page: {
+          value: {
+            id: 'tech_page',
+            type: 'page',
+            properties: {
+              tags: [['Tech,Life']]
+            }
+          }
+        },
+        life_page: {
+          value: {
+            id: 'life_page',
+            type: 'page',
+            properties: {
+              tags: [['Life']]
+            }
+          }
+        }
+      },
+      collection: {
+        collection_1: {
+          value: {
+            schema: {
+              tags: { name: 'Tags', type: 'multi_select' }
+            }
+          }
+        }
+      },
+      collection_view: {
+        view_1: {
+          value: {
+            value: {
+              id: 'view_1',
+              page_sort: ['tech_page', 'life_page'],
+              format: {
+                collection_pointer: { id: 'collection_1' },
+                property_filters: [
+                  {
+                    filter: {
+                      property: 'tags',
+                      filter: {
+                        operator: 'multi_select_contains',
+                        value: { type: 'exact', value: 'Tech' }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      collection_query: {
+        collection_1: {
+          view_1: {
+            collection_group_results: {
+              blockIds: ['tech_page', 'life_page']
+            }
+          }
+        }
+      }
+    }
+
+    filterCollectionViewData(blockMap)
+
+    expect(
+      blockMap.collection_query.collection_1.view_1.collection_group_results
+        .blockIds
+    ).toEqual(['tech_page'])
+    expect(blockMap.collection_view.view_1.value.value.page_sort).toEqual([
+      'tech_page'
+    ])
+  })
+
+  it('matches multi-select does-not-contain filters when values are comma-separated', () => {
+    const blockMap = {
+      block: {
+        tech_page: {
+          value: {
+            id: 'tech_page',
+            type: 'page',
+            properties: {
+              tags: [['Tech,Life']]
+            }
+          }
+        },
+        life_page: {
+          value: {
+            id: 'life_page',
+            type: 'page',
+            properties: {
+              tags: [['Life']]
+            }
+          }
+        }
+      },
+      collection: {
+        collection_1: {
+          value: {
+            schema: {
+              tags: { name: 'Tags', type: 'multi_select' }
+            }
+          }
+        }
+      },
+      collection_view: {
+        view_1: {
+          value: {
+            value: {
+              id: 'view_1',
+              page_sort: ['tech_page', 'life_page'],
+              format: {
+                collection_pointer: { id: 'collection_1' },
+                property_filters: [
+                  {
+                    filter: {
+                      property: 'tags',
+                      filter: {
+                        operator: 'multi_select_does_not_contain',
+                        value: { type: 'exact', value: 'Tech' }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      collection_query: {
+        collection_1: {
+          view_1: {
+            collection_group_results: {
+              blockIds: ['tech_page', 'life_page']
+            }
+          }
+        }
+      }
+    }
+
+    filterCollectionViewData(blockMap)
+
+    expect(
+      blockMap.collection_query.collection_1.view_1.collection_group_results
+        .blockIds
+    ).toEqual(['life_page'])
+    expect(blockMap.collection_view.view_1.value.value.page_sort).toEqual([
+      'life_page'
+    ])
+  })
+
   it('normalizes reducerResults collection group data for gallery rendering', () => {
     const blockMap = {
       block: {
