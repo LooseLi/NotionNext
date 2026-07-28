@@ -1,6 +1,5 @@
 import { loadExternalResource } from '@/lib/utils'
 import { useEffect } from 'react'
-// import AOS from 'aos'
 
 /**
  * 加载滚动动画
@@ -22,7 +21,6 @@ export default function AOSAnimation() {
     ]).then(() => {
       if (window.AOS) {
         window.AOS.init({
-          disableMutationObserver: true,
           debounceDelay: 100,
           throttleDelay: 120,
           once: true

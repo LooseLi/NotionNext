@@ -1,5 +1,6 @@
 import { siteConfig } from '@/lib/config'
 import { compressImage, mapImgUrl } from '@/lib/db/notion/mapImage'
+import NotionEmbed from '@/components/NotionEmbed'
 import NotionLink from '@/components/NotionLink'
 import { isBrowser, loadExternalResource } from '@/lib/utils'
 import mediumZoom from '@fisch0920/medium-zoom'
@@ -120,6 +121,7 @@ const NotionPage = ({ post, className }) => {
         components={{
           Code,
           Collection,
+          Embed: NotionEmbed,
           Equation,
           Link: NotionLink,
           Modal,
@@ -142,7 +144,6 @@ const hasCodeBlock = blockMap => {
     item => item?.value?.type === 'code'
   )
 }
-
 
 /**
  * 页面的数据库链接禁止跳转，只能查看
