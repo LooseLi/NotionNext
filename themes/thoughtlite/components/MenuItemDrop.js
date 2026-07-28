@@ -49,10 +49,10 @@ export const MenuItemDrop = ({ link, variant = 'default' }) => {
     }
 
     updatePosition()
-    window.addEventListener('scroll', updatePosition, true)
+    window.addEventListener('scroll', updatePosition, { passive: true })
     window.addEventListener('resize', updatePosition)
     return () => {
-      window.removeEventListener('scroll', updatePosition, true)
+      window.removeEventListener('scroll', updatePosition, { passive: true })
       window.removeEventListener('resize', updatePosition)
     }
   }, [show, isInline, hasSubMenu])
@@ -127,7 +127,7 @@ export const MenuItemDrop = ({ link, variant = 'default' }) => {
         <div className={linkBox}>
           {link?.icon && <i className={link?.icon} />} {link?.name}
           <i
-            className={`px-2 fas fa-chevron-down duration-500 transition-all ${show ? ' rotate-180' : ''}`}></i>
+            className={`ml-2 fas fa-chevron-down duration-500 transition-all ${show ? ' rotate-180' : ''}`}></i>
         </div>
       )}
 
